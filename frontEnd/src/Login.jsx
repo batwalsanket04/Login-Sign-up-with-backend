@@ -1,7 +1,40 @@
+import axios from 'axios'
 import React from 'react'
-import { NavLink } from 'react-router-dom'
+import { useState } from 'react'
+import { NavLink, useNavigate } from 'react-router-dom'
 
 const Login = () => {
+  const [data,setData]=useState({email:'',password:''})
+    const nav=useNavigate();
+  
+
+
+const handleForm=(e)=>{
+  const {name,value}=e.target;
+
+  setData({...data,[name]:value})
+}
+
+const handleSubmit=async(e)=>{
+ e.preventDefault();
+ try {
+  const result=await axios.post('http://127.0.0.1:3000/api/user/login',data)
+
+  localStorage.setItem("token",result.data.token)
+
+  alert(result.data.message || "Login Successfully")
+      nav("/userdata")
+
+
+  setData({email:"",password:""})
+ } catch (error) {
+
+  alert(error.response?.data?.message || "Login Failed")
+  
+ }
+}
+
+
   return (
     <div>
        <div className="min-h-screen flex items-center justify-center bg-gray-100">
@@ -10,10 +43,13 @@ const Login = () => {
           Login
         </h2>
 
-        <form>
+        <form onSubmit={handleSubmit}>
           <input
             type="email"
             name="email"
+            id='email'
+            onChange={handleForm}
+            value={data.email}
             placeholder="Email"
             className="w-full p-2 border rounded mb-3"
           />
@@ -21,6 +57,9 @@ const Login = () => {
           <input
             type="password"
             name="password"
+            value={data.password}
+            id='password'
+            onChange={handleForm}
             placeholder="Password"
             className="w-full p-2 border rounded mb-4"
           />
