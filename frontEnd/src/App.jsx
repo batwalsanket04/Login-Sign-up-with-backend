@@ -3,6 +3,7 @@
 import Register from './Register'
 import Login from './Login'
 import UserData from './UserData'
+import Update from './Update'
  
  const App = () => {
    return (
@@ -12,6 +13,8 @@ import UserData from './UserData'
           <Route path='/' element={<Register/>}/>
           <Route path='/login' element={<Login/>}/>
           <Route path='/userdata' element={<UserData/>}/>
+          <Route path='/update/:id' element={<Update/>}/>
+
 
 
         </Routes>

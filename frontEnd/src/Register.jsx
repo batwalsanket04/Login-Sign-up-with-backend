@@ -71,6 +71,15 @@ const Register = () => {
             Register
           </button>
         </form>
+        <NavLink to="/userdata">
+  <button
+    type="button"
+    className="w-full mt-3 bg-green-600 text-white py-2 rounded hover:bg-green-700"
+  >
+    See Users
+  </button>
+</NavLink>
+ 
 
         <p className="text-center text-sm mt-4">
           Already have an account?

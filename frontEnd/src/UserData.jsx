@@ -74,7 +74,7 @@ const deleteUser=async(id)=>{
                     {val.email}
                   </td>
                   <td className="px-6 py-3 text-center space-x-2">
-                    <NavLink to={`/edituser/${val._id}`}>
+                    <NavLink to={`/update/${val._id}`}>
                       <button className="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600">
                         Edit
                       </button>
@@ -86,6 +86,13 @@ const deleteUser=async(id)=>{
                     >
                       Delete
                     </button>
+                   <NavLink to={"/"}>
+                     <button
+                      className="bg-green-500 text-white px-3 py-1 rounded hover:bg-green-600"
+                    >
+                      Register
+                    </button>
+                   </NavLink>
                   </td>
                 </tr>
               ))}
