@@ -3,6 +3,7 @@ import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const Update = () => {
     const {id}=useParams();
@@ -32,10 +33,10 @@ const Update = () => {
 try {
     const result=await axios.put(`http://127.0.0.1:3000/api/user/update/${id}`,data)
     setData((prev)=>prev.filter((val)=>val._id!==id))
-    alert(result.data.message || "user Updated Successfully..")
+    toast.success(result.data.message || "user Updated Successfully..")
     nav("/userdata")
 } catch (error) {
-    alert(error.result?.data?.message) 
+    toast.error(error.result?.data?.message) 
 }
     }
 

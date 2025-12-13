@@ -1,6 +1,7 @@
 import axios from 'axios'
 import React, { useState } from 'react'
 import { NavLink } from 'react-router-dom'
+import { toast } from 'react-toastify'
 
 const Register = () => {
     const [data,setData]=useState({name:"",email:"",password:""})
@@ -16,10 +17,10 @@ const Register = () => {
 
         try {
              const result= await axios.post('http://localhost:3000/api/user/register',data)
-            alert(result.data.message)
+            toast.success(result.data.message)
              setData({name:'',email:'',password:''})
         } catch (error) {
-          alert(error.response?.data?.message || "Registration Failed")
+          toast.error(error.response?.data?.message || "Registration Failed")
 }
 
     }

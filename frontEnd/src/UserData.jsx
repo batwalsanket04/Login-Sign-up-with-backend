@@ -3,6 +3,7 @@ import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
 import { data, NavLink, useNavigate } from "react-router-dom";
+import {toast} from 'react-toastify'
 
 const UserData = () => {
   const [user, setUSer] = useState([]);
@@ -28,12 +29,13 @@ const UserData = () => {
 const deleteUser=async(id)=>{
     try {
         console.log(id)
+        window.confirm("Are You Sure?")
        const result= await axios.delete(`http://127.0.0.1:3000/api/user/delete/${id}`)
         setUSer((prev) => prev.filter((val) => val._id !== id))
-        alert(result.data.message|| "User Deleted Successfully");
+        toast.success(result.data.message|| "User Deleted Successfully");
         console.log(result.data.result)
     } catch (error) {
-         alert(error.result?.data?.message || "User Deleted Failed");
+         toast.error(error.result?.data?.message || "User Deleted Failed");
     }
 
 }

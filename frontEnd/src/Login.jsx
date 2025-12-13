@@ -2,6 +2,7 @@ import axios from 'axios'
 import React from 'react'
 import { useState } from 'react'
 import { NavLink, useNavigate } from 'react-router-dom'
+import {toast} from 'react-toastify'
 
 const Login = () => {
   const [data,setData]=useState({email:'',password:''})
@@ -22,14 +23,14 @@ const handleSubmit=async(e)=>{
 
   localStorage.setItem("token",result.data.token)
 
-  alert(result.data.message || "Login Successfully")
+  toast.success(result.data.message || "Login Successfully")
       nav("/userdata")
 
 
   setData({email:"",password:""})
  } catch (error) {
 
-  alert(error.response?.data?.message || "Login Failed")
+  toast.error(error.response?.data?.message || "Login Failed")
   
  }
 }
