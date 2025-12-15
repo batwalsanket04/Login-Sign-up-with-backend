@@ -22,6 +22,7 @@ app.use(
  // Db Connection
 
  const conn=require('./config/Connection')
+ conn();
  const user=require('./route/userRoute');
 const { config } = require('dotenv');
 
