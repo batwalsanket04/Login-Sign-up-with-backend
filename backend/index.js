@@ -38,6 +38,6 @@ app.get("/",(req,res)=>{
     res.send('API Working')
 })
 
-app.listen(PORT,()=>{
+app.listen(PORT,HOST,()=>{
     console.log(`Server is Run:http://${HOST}:${PORT}`)
 })
