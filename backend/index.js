@@ -30,13 +30,14 @@ const { config } = require('dotenv');
  app.use("/api/user",user)
 
 const PORT=3000;
-const HOST='127.0.0.1';
+const HOST='0.0.0.0';
+
 
 
 app.get("/",(req,res)=>{
     res.send('API Working')
 })
 
-app.listen(PORT,HOST,()=>{
+app.listen(PORT,()=>{
     console.log(`Server is Run:http://${HOST}:${PORT}`)
 })
