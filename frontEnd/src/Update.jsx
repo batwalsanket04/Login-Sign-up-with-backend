@@ -13,7 +13,7 @@ const Update = () => {
     useEffect(()=>{
         const FetchData=async()=>{
   try {
-    const result= await axios.get(`http://127.0.0.1:3000/api/user/byid/${id}`)
+    const result= await axios.get(`https://login-sign-up-with-backend-backend.onrender.com/api/user/byid/${id}`)
      setData(result.data.user)
   } catch (error) {
      console.log(error)
@@ -31,7 +31,7 @@ const Update = () => {
     const handleSubmit=async(e)=>{
         e.preventDefault();
 try {
-    const result=await axios.put(`http://127.0.0.1:3000/api/user/update/${id}`,data)
+    const result=await axios.put(`https://login-sign-up-with-backend-backend.onrender.com/api/user/update/${id}`,data)
     setData((prev)=>prev.filter((val)=>val._id!==id))
     toast.success(result.data.message || "user Updated Successfully..")
     nav("/userdata")
