@@ -13,7 +13,7 @@ const UserData = () => {
     
         const FetchData=async()=>{
           try{
-            const result=await axios.get('http://127.0.0.1:3000/api/user/alluser')
+            const result=await axios.get('https://login-sign-up-with-backend-backend.onrender.com/api/user/alluser')
             setUSer(result.data.result||result.data) 
             console.log("Data fetch SuccessFully")
         }catch (error) {
@@ -30,7 +30,7 @@ const deleteUser=async(id)=>{
     try {
         console.log(id)
         window.confirm("Are You Sure?")
-       const result= await axios.delete(`http://127.0.0.1:3000/api/user/delete/${id}`)
+       const result= await axios.delete(`https://login-sign-up-with-backend-backend.onrender.com/api/user/delete/${id}`)
         setUSer((prev) => prev.filter((val) => val._id !== id))
         toast.success(result.data.message|| "User Deleted Successfully");
         console.log(result.data.result)
