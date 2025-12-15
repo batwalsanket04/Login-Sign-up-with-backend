@@ -16,7 +16,7 @@ const Register = () => {
         e.preventDefault();
 
         try {
-             const result= await axios.post('http://localhost:3000/api/user/register',data)
+             const result= await axios.post('https://login-sign-up-with-backend-backend.onrender.com/api/user/register',data)
             toast.success(result.data.message)
              setData({name:'',email:'',password:''})
         } catch (error) {
