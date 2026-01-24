@@ -21,7 +21,6 @@ const UserData = () => {
     }
         
     } 
-
     FetchData();    
     
   },[])

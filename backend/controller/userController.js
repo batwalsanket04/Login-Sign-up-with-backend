@@ -1,6 +1,5 @@
 require("dotenv").config();
-const express=require('express')
-const mongoose=require('mongoose')
+ 
  const User=require('../model/userSchema')
 const bcrypt=require('bcrypt')
 const JWT=require('jsonwebtoken')
@@ -74,7 +73,7 @@ const getAllUser=async(req,res)=>{
         const result=await User.find()
         res.status(201).json({success:true,result:result})
     } catch (error) {
-        
+        console.log(error)
     }
 }
 
